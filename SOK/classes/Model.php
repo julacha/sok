@@ -17,9 +17,13 @@ class Model{
     public function getRegister(){
         $this->view->printRegister();
     }
-    public function getCat(){
-        $this->view->printCat();
+    public function addNewUser(){
+
+        echo "Adding new user";
     }
+/*     public function getCat(){
+        $this->view->printCat();
+    } */
      //When the user enters the task in the form, tasks are acceped and added to database
 /*     public function addTask($task=null){
         $stmt = $this->conn->prepare ("INSERT INTO tasks (task) VALUES (:task)");

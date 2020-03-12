@@ -9,7 +9,8 @@ class Controller{
   private function postReq()
   {
     if (basename($_SERVER['PHP_SELF']) ==='register.php'){
-    echo "Processing register post";
+   //echo "Processing register post";
+   $this->model->addNewUser();
     return;
     }
  /*if (isset($_POST['addBtn'])) {
