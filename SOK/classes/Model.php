@@ -14,16 +14,40 @@ class Model{
         //echo "<hr>Connected Successfully!<hr>";
     
     }
+    //ne rabotaet
+    /*     public function getCat(){
+        $this->view->printCat();
+    } */
     public function getRegister(){
         $this->view->printRegister();
     }
+     //When the user enters the task in the form, tasks are acceped and added to database
     public function addNewUser(){
-
-        echo "Adding new user";
+        $stmt = $this->conn->prepare("SELECT name FROM users
+        WHERE (name = :name)
+        ");
+        $stmt->bindParam(':name',$_POST ['username']);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $result = $stmt->fetchAll();
+        //var_dump($result);
+        if (count($result) > 0){
+            ('Location: /register.php');
+            die("Got this user alredy");
+            exit;
+        }
+  
+        $stmt = $this->conn->prepare ("INSERT INTO `users`
+        (`id`, `name`, `hash`, `created`) 
+        VALUES (NULL, :name, :hash, current_timestamp())");
+        $stmt->bindParam(':name',$_POST ['username']);
+        $hash = password_hash($_POST['pw1'], PASSWORD_DEFAULT);
+        $stmt->bindParam(':hash', $hash);
+        $stmt->execute();
+       //echo "Adding new user with the $hash";
+       $this->view->printRegister();
     }
-/*     public function getCat(){
-        $this->view->printCat();
-    } */
+
      //When the user enters the task in the form, tasks are acceped and added to database
 /*     public function addTask($task=null){
         $stmt = $this->conn->prepare ("INSERT INTO tasks (task) VALUES (:task)");
