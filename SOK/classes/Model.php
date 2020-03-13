@@ -23,7 +23,7 @@ class Model{
     }
      //When the user enters the task in the form, tasks are acceped and added to database
     public function addNewUser(){
-        if (getHash($_POST['username']) === 0){
+        if ($this->getHash($_POST['username']) != 0){
       /*   $stmt = $this->conn->prepare("SELECT name FROM users
         WHERE (name = :name)
         ");
@@ -33,10 +33,10 @@ class Model{
         $result = $stmt->fetchAll();
         //var_dump($result);
         if (count($result) > 0){ */
-            ('Location: /regform.php');
+            ('Location: /register.php');
             //die("Got this user alredy");
-            exit;
-        }
+            exit();
+    }
   
         $stmt = $this->conn->prepare ("INSERT INTO `users`
         (`id`, `name`, `hash`, `created`) 
@@ -47,9 +47,9 @@ class Model{
         $stmt->execute();
        //echo "Adding new user with the $hash";
        $this->view->printRegister();
-    }
+}
 
-    public function hetHash($username){
+    public function getHash($username){
         $stmt = $this->conn->prepare("SELECT hash FROM users
         WHERE (name = :name)");
         $stmt->bindParam(':name',$username);

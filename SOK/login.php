@@ -13,7 +13,7 @@ $controller = new Controller ($model);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //var_dump($_POST);
-    $hash = $model->hetHash($_POST['username']);
+    $hash = $model->getHash($_POST['username']);
     if(password_verify($_POST['pw'], $hash)){
         echo "You are good to go! Consider yourself logged in!";
     }else{
