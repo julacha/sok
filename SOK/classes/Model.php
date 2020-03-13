@@ -23,7 +23,8 @@ class Model{
     }
      //When the user enters the task in the form, tasks are acceped and added to database
     public function addNewUser(){
-        $stmt = $this->conn->prepare("SELECT name FROM users
+        if (getHash($_POST['username']) === 0){
+      /*   $stmt = $this->conn->prepare("SELECT name FROM users
         WHERE (name = :name)
         ");
         $stmt->bindParam(':name',$_POST ['username']);
@@ -31,9 +32,9 @@ class Model{
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $result = $stmt->fetchAll();
         //var_dump($result);
-        if (count($result) > 0){
-            ('Location: /register.php');
-            die("Got this user alredy");
+        if (count($result) > 0){ */
+            ('Location: /regform.php');
+            //die("Got this user alredy");
             exit;
         }
   
@@ -46,6 +47,22 @@ class Model{
         $stmt->execute();
        //echo "Adding new user with the $hash";
        $this->view->printRegister();
+    }
+
+    public function hetHash($username){
+        $stmt = $this->conn->prepare("SELECT hash FROM users
+        WHERE (name = :name)");
+        $stmt->bindParam(':name',$username);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $result = $stmt->fetchAll();
+        if(count($result) > 0){
+      /*       var_dump($results);
+            die("For now"); */
+            return $result [0]['hash'];
+        } else{
+        return null;
+        }
     }
 
      //When the user enters the task in the form, tasks are acceped and added to database
