@@ -80,39 +80,28 @@ class Model{
         }
     }
 
-     //When the user enters the task in the form, tasks are acceped and added to database
-/*     public function addTask($task=null){
-        $stmt = $this->conn->prepare ("INSERT INTO tasks (task) VALUES (:task)");
-        $stmt->bindParam(':task',$_POST ['task']);
-        $stmt->execute();
-        $this->view->printTasks();
-        $this->getTask();
-    } */
-
-
-/*  public function getTask(){
+public function get_cat(){
         //Task is received from database and displayed under the form
-        $stmt = $this->conn->prepare ("SELECT * FROM tasks");
+        $stmt = $this->conn->prepare ("SELECT id,title,parent_id FROM categories");
         $stmt->execute(); 
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $allRows = $stmt->fetchAll();
+        $result = $stmt->fetchAll();
         //var_dump($allRows);
-        $this->view->printTasks($allRows);   
-} /*
+        $this->view->printTitle($result);
+        $arr=array();
+        var_dump($result);
+    
+        
 
-/* public function deleteTask(){
-    $stmt = $this->conn->prepare("DELETE FROM tasks WHERE id = (:taskid)");
-    $stmt->bindParam(':taskid',$_POST ['delBtn']);
-    $stmt->execute();
-    $this->getTask();
+}
+//When the user enters the task in the form, tasks are acceped and added to database
+/* public function addTitle($title=null){
+        $stmt = $this->conn->prepare ("INSERT INTO categories (title) VALUES (:title)");
+        $stmt->bindParam(':title',$_POST ['title']);
+        $stmt->execute();
+        $this->view->printTitle();
+        $this->getTitle();
+} */
 }
 
-public function updateTask(){
-    $stmt = $this->conn->prepare("UPDATE tasks SET task = (:taskname) WHERE id = (:taskid)");
-    $stmt->bindParam(':taskid',$_POST ['updateBtn']);
-    $stmt->bindParam(':taskname',$_POST ['task_update']);
-    $stmt->execute();
-    $this->getTask(); 
-}  */
-}
 

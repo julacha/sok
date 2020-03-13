@@ -15,11 +15,6 @@ class Controller{
     }
  /*if (isset($_POST['addBtn'])) {
         $this->model->addTask();
-    } elseif (isset($_POST['delBtn'])){
-        $this->model->deleteTask();
-    } elseif (isset($_POST['updateBtn'])){
-        $this->model->updateTask();
-        //var_dump($_POST);
     }else {
         var_dump($_POST);
     }*/
@@ -32,11 +27,11 @@ class Controller{
             $this->model->getRegister();
             return;
             }
-    /*     if (isset($_GET['task'])) {
-            $this->model->getTask($_GET['task']);
+       if (isset($_GET['id, title, parent_id'])) {
+            $this->model->get_cat($_GET['id, title, parent_id']);
         } else {
-            $this->model->getTask();
-        } */
+            $this->model->get_cat();
+        }
     } 
 
    public function route()
