@@ -28,9 +28,9 @@ class Controller{
             return;
             }
        if (isset($_GET['id, title, parent_id'])) {
-            $this->model->get_cat($_GET['id, title, parent_id']);
+            $this->model->getCat($_GET['id, title, parent_id']);
         } else {
-            $this->model->get_cat();
+            $this->model->getCat();
         }
     } 
 
