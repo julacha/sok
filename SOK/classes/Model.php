@@ -80,52 +80,19 @@ class Model{
 
 public function getCat(){
         //Task is received from database and displayed under the form
-        $stmt = $this->conn->prepare ("SELECT id, title, user_id FROM categories");
+        $stmt = $this->conn->prepare ("SELECT id, title,parent_id, user_id FROM categories");
         $stmt->execute(); 
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $result = $stmt->fetchAll();
         //var_dump($result);
         $this->view->printTitle($result);
 
-        $arr_cat = array();
-        if($stmt->$this->mysql_num_rows($result) != 0) {
-        
-         //В цикле формируем массив
-         for($i = 0; $i < mysql_num_rows($result);$i++) {
-        $row = mysql_fetch_array($result,MYSQL_ASSOC);
-        
-        //Формируем массив, где ключами являются адишники на родительские категории
-        if(empty($arr_cat[$row['parent_id']])) {
-        $arr_cat[$row['parent_id']] = array();
-        }
-        $arr_cat[$row['parent_id']][] = $row;
-         }
-         //возвращаем массив
-         return $arr_cat;
-        }
-       }
-}        
+             //первый ключ - parent_id)
+             $return = array();
+             foreach ($result as $value) { //Обходим массив
+                 $return[$value->parent_id][] = $value;
+             }
+             return $return;
+}
 
-/* $arrCat = array();
-if($stmt->$this->num_rows($result) !=0) {
-    for ($i = 0; $i < num_rows($result);$i++){
-        $row = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        if (empty($arrCat[$row['parent_id']])){
-         $arrCat[$row['parent_id']] = array();
-        }
-        $arrCat[$row['parent_id']] [] = $row;
-    }
-} 
-        */ 
-
-//When the user enters the task in the form, tasks are acceped and added to database
-/* public function addTitle($title=null){
-        $stmt = $this->conn->prepare ("INSERT INTO categories (title) VALUES (:title)");
-        $stmt->bindParam(':title',$_POST ['title']);
-        $stmt->execute();
-        $this->view->printTitle();
-        $this->getTitle();
-} */
-
-
-
+}

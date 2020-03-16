@@ -27,7 +27,7 @@ class Controller{
             $this->model->getRegister();
             return;
             }
-       if (isset($_GET['id, title, parent_id'])) {
+       if (isset($_GET['id, title, parent_id, user_id'])) {
             $this->model->getCat($_GET['id, title, parent_id']);
         } else {
             $this->model->getCat();
