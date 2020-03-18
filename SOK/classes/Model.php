@@ -80,13 +80,13 @@ class Model{
 
 public function getCat(){
         //Task is received from database and displayed under the form
-         $stmt = $this->conn->prepare ("SELECT id, title,parent_id, user_id FROM categories");
+        $stmt = $this->conn->prepare ("SELECT id, title,parent_id, user_id FROM categories");
         $stmt->execute(); 
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $result= $stmt->fetchAll();
         print_r($result);
         $this->view->printTitle($result); 
-}
+
  function createTree($arr){
     $parents_arr = array();
     foreach($arr as $key=>$item){
@@ -106,4 +106,5 @@ foreach($treeElem as $key=>$item){
     }
 }
 } 
+}
 }

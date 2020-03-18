@@ -13,7 +13,7 @@ class View{
     echo "<hr>";
     //var_dump($cat);
 
-    function createTree($arr){
+  /*   function createTree($arr){
         $parents_arr = array();
         foreach($arr as $key=>$item){
             $parents_arr[$item['parent_id']][$item['id']]=$item;
@@ -31,7 +31,7 @@ class View{
             $treeElem[$key]['children'] = $parents_arr[$key];
         }
     }
-}
+} */
 }
     public function printRegister(){
     require_once "../SOK/head.php";
