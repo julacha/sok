@@ -80,19 +80,27 @@ class Model{
 
 public function getCat(){
         //Task is received from database and displayed under the form
-        $stmt = $this->conn->prepare ("SELECT id, title,parent_id, user_id FROM categories");
+         $stmt = $this->conn->prepare ("SELECT id, title,parent_id, user_id FROM categories");
         $stmt->execute(); 
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $result = $stmt->fetchAll();
-        //var_dump($result);
-        $this->view->printTitle($result);
-
-             //первый ключ - parent_id)
-             $return = array();
-             foreach ($result as $value) { //Обходим массив
-                 $return[$value->parent_id][] = $value;
-             }
-             return $return;
+        $result= $stmt->fetchAll();
+        print_r($result);
+        $this->view->printTitle($result); 
 }
-
+ function createTree($arr){
+    $parents_arr = array();
+    foreach($arr as $key=>$item){
+        $parents_arr[$item['parent_id']][$item['id']]=$item;
+    }
+    $treeElem = $parents_arr[0];
+    generateEleTree($treeElem,$parents_arr);
+    return $treeElem;
+}
+function generateEleTree($treeElem,$parents_arr){
+foreach($treeElem as $key=>$item){
+    if(!isset($item['children'])){
+        $treeElem[$key]['children'] = array();
+    }
+}
+} 
 }
