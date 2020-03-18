@@ -29,9 +29,12 @@ class Controller{
             }
        if (isset($_GET['id, title, parent_id, user_id'])) {
             $this->model->getCat($_GET['id, title, parent_id']);
-        } else {
-            $this->model->getCat();
-        }
+      } else {
+        $this->model->getCat();
+   /*          if(isset($_GET['children'])){
+            $this->model->generateElemTree();
+        }  */
+        } 
     } 
 
    public function route()
