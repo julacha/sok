@@ -31,13 +31,12 @@ class Controller{
             $this->model->getCat($_GET['id, title, parent_id']);
       } else {
         $this->model->getCat();
-/*     } elseif{
-        (isset($_GET['children'])){
-            $this->model->generateElemTree();
-        } */
+      }
+         if (isset($_GET['parent_id'])) 
+            $this->model->outTree();
+        }
         
-} 
-}
+
    public function route()
     {   
          //GETS are for retrieval only

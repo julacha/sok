@@ -82,17 +82,39 @@ public function getCat(){
         //Task is received from database and displayed under the form
         $stmt = $this->conn->prepare ("SELECT id, title,parent_id, user_id FROM categories");
         $stmt->execute(); 
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmt->setFetchMode(PDO::FETCH_OBJ);
         $result= $stmt->fetchAll();
-        print_r($result);
-        $this->view->printTitle($result); 
+        //print_r($result);
+        $this->view->printTitle($result);
+       /*  $return = array();
+        foreach ($result as $value) { //Обходим массив
+            $return[$value->parent_id][] = $value;
+        }
+        return $return;*/
+    } 
 
- function createTree($arr){
+public function outTree($parent_id, $level) {
+    if (isset($this->_category_arr[$parent_id])) { //Если категория с таким parent_id существует
+        foreach ($this->_category_arr[$parent_id] as $value) { //Обходим ее
+            echo "<div style='margin-left:" . ($level * 25) . "px;'>" . $value->name . "</div>";
+            $level++; 
+            $this->outTree($value->id, $level);
+            $level--; //Уменьшаем уровень вложености
+        }
+    }
+    $this->view->printTitle();
+} 
+}
+
+/*  function createTree($arr){
     $parents_arr = array();
     foreach($arr as $key=>$item){
         $parents_arr[$item['parent_id']][$item['id']]=$item;
     }
-    $treeElem = $parents_arr[0];
+    return $parents_arr;
+    $this->view->printTitle();
+    print_r($parents_arr);
+  $treeElem = $parents_arr[0];
     generateElemTree($treeElem,$parents_arr);
     return $treeElem;
 }
@@ -103,8 +125,9 @@ foreach($treeElem as $key=>$item){
     }
     if(array_key_exists($key, $parents_arr)){
         $treeElem[$key]['children'] = $parents_arr[$key];
-    }
-}
-} 
-}
-}
+    } 
+}  
+} */
+
+
+
