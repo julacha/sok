@@ -1,3 +1,14 @@
 body{
-    background-color: lightgreen;
+    font-family: 'Baloo Chettan 2', cursive;
+}
+.navig{
+    width: 500px;
+    display: flex;
+   justify-content: space-around;
+   font-size: 25px;
+   text-transform:uppercase;
+   text-decoration: none;
+}
+.margin-left{
+    margin:20px;
 }

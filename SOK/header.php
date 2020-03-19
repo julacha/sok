@@ -1,9 +1,8 @@
 <header>
 <nav>
-<ul>
-<li><a href="index.php">Home</a></li>
-<li>About</li>
-<li><a href="register.php">Register</a></li>
-</ul>
+<div class="navig">
+<div><a href="index.php">Home</a></div>
+<div><a href="register.php">Register</a></div>
+</div>
 </nav>
 </header>

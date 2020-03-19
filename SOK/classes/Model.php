@@ -86,12 +86,12 @@ public function getCat(){
         $result= $stmt->fetchAll();
         //print_r($result);
         $this->view->printTitle($result);
-       /*  $return = array();
+        $return = array();
         foreach ($result as $value) { //Обходим массив
             $return[$value->parent_id][] = $value;
         }
-        return $return;*/
-    } 
+        return $return;
+    }
 
 public function outTree($parent_id, $level) {
     if (isset($this->_category_arr[$parent_id])) { //Если категория с таким parent_id существует
@@ -99,35 +99,13 @@ public function outTree($parent_id, $level) {
             echo "<div style='margin-left:" . ($level * 25) . "px;'>" . $value->name . "</div>";
             $level++; 
             $this->outTree($value->id, $level);
-            $level--; //Уменьшаем уровень вложености
+            $level--;
         }
     }
     $this->view->printTitle();
-} 
+}
 }
 
-/*  function createTree($arr){
-    $parents_arr = array();
-    foreach($arr as $key=>$item){
-        $parents_arr[$item['parent_id']][$item['id']]=$item;
-    }
-    return $parents_arr;
-    $this->view->printTitle();
-    print_r($parents_arr);
-  $treeElem = $parents_arr[0];
-    generateElemTree($treeElem,$parents_arr);
-    return $treeElem;
-}
-function generateElemTree(&$treeElem,$parents_arr){
-foreach($treeElem as $key=>$item){
-    if(!isset($item['children'])){
-        $treeElem[$key]['children'] = array();
-    }
-    if(array_key_exists($key, $parents_arr)){
-        $treeElem[$key]['children'] = $parents_arr[$key];
-    } 
-}  
-} */
 
 
 
