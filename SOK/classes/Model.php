@@ -93,17 +93,7 @@ public function getCat(){
         return $return;
     }
 
-public function outTree($parent_id, $level) {
-    if (isset($this->_category_arr[$parent_id])) { //Если категория с таким parent_id существует
-        foreach ($this->_category_arr[$parent_id] as $value) { //Обходим ее
-            echo "<div style='margin-left:" . ($level * 25) . "px;'>" . $value->name . "</div>";
-            $level++; 
-            $this->outTree($value->id, $level);
-            $level--;
-        }
-    }
-    $this->view->printTitle();
-}
+
 }
 
 
