@@ -32,9 +32,7 @@ class Controller{
       } else {
         $this->model->getCat();
       }
-         if (isset($_GET['parent_id'])) 
-            $this->model->outTree();
-        }
+    }
         
 
    public function route()

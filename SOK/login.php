@@ -21,6 +21,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }else{
         echo "Not so good, eiher user or password is incorrect.";
     }
-    //select name and hash from DB
-    //password_verify user entry against the hash
+
 }

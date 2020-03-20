@@ -18,7 +18,6 @@ class Model{
     public function getRegister(){
         $this->view->printRegister();
     }
-     //When the user enters the task in the form, tasks are acceped and added to database
     public function addNewUser(){
         if ($this->getHash($_POST['username']) != 0){
       /*   $stmt = $this->conn->prepare("SELECT name FROM users
@@ -42,7 +41,7 @@ class Model{
         $hash = password_hash($_POST['pw1'], PASSWORD_DEFAULT);
         $stmt->bindParam(':hash', $hash);
         $stmt->execute();
-       //echo "Adding new user with the $hash";
+       echo "You are wellcome";
        $this->view->printRegister();
 }
 
@@ -79,21 +78,14 @@ class Model{
 
 
 public function getCat(){
-        //Task is received from database and displayed under the form
-        $stmt = $this->conn->prepare ("SELECT id, title,parent_id, user_id FROM categories");
+        $stmt = $this->conn->prepare ("SELECT * FROM categories");
         $stmt->execute(); 
-        $stmt->setFetchMode(PDO::FETCH_OBJ);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $result= $stmt->fetchAll();
         //print_r($result);
         $this->view->printTitle($result);
-        $return = array();
-        foreach ($result as $value) { //Обходим массив
-            $return[$value->parent_id][] = $value;
-        }
-        return $return;
-    }
-
-
+            
+}
 }
 
 
