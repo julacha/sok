@@ -1,0 +1,341 @@
+body{
+font-family: 'Source Sans Pro', sans-serif;
+}
+    
+.background{
+background-image: url(img/Background.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+#main{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+.header{
+    grid-area: 1/1/2/4; 
+    height: 190px;
+}
+.bgcontainer{
+    grid-area: 2/2/3/3;
+    width: 920px;
+    height: 420px;
+    display: flex;
+}
+    
+.blockone{
+    padding-top: 80px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-bottom: 74px;
+    box-sizing:border-box;
+    width: 460px;
+    height: 420px;
+    z-index:1;
+    background-color: rgb(15,26,47);
+    opacity:0.9;
+    position: absolute;
+    color: white ;
+}
+.acc_one{
+    font-size: 28px;
+}
+
+.acc_one:after{
+    content:"";
+    display: block;
+    width: 40px;
+    height: 2px;
+    margin-top: 34px;
+    margin-bottom: 36px;
+    background-color: rgb(73, 171, 254);
+}
+
+.text{
+    font-size: 16px;
+    margin: 0px;
+}
+#signbtn{
+    border: 2px solid rgb(73, 171, 254);
+    border-radius: 30px;
+    background-color: rgb(15,26,47);
+    opacity:0.9;
+    padding: 18px 40px;
+    color:white;
+    margin-top: 31px;
+}
+
+.color_selected {
+background-color: royalblue;
+  }
+
+
+.pick{
+    background-color:yellow;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-top: 10%;
+    margin-left: 80%;
+    position: absolute;
+}
+.blocktwo{
+    padding-top: 110px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-bottom: 105px;
+    box-sizing:border-box;
+    width: 460px;
+    height: 420px;
+    z-index:-1;
+    background-color: rgb(15,26,47);
+    opacity:0.9;
+    margin-left:460px;
+    color: white ;
+}
+
+.acc_two{
+    font-size: 28px;
+    margin: 0;
+}
+
+.acc_two:after{
+    content:"";
+    display: block;
+    width: 40px;
+    height: 2px;
+    margin-top: 34px;
+    margin-bottom: 36px;
+    background-color: rgb(73, 171, 254);
+}
+
+#logbtn{
+    border: 2px solid rgb(73, 171, 254);
+    border-radius: 30px;
+    background-color: rgb(15,26,47);
+    opacity:0.9;
+    padding: 18px 45px;
+    color:white;
+    margin-top: 31px;
+
+}
+
+.colortext{
+    color:red;
+}
+.bgbox{
+    grid-area: 2/2/3/3;;
+    width: 920px;
+    height: 460px;
+    display: flex;
+    margin-top: -20px;
+}
+       
+#showbox{
+        padding-top: 60px;
+        padding-left: 90px;
+        padding-right: 90px;
+        padding-bottom: 60px;
+        box-sizing:border-box;
+        background-color:white;
+        width: 460px;
+        height: 460px;
+        visibility: hidden;
+        z-index:5;
+        transition: .55s opacity, .55s visibility;
+}
+.signone{
+        display: flex;
+        justify-content: space-between;
+}
+
+.sign{
+    font-size: 28px;
+    color: gray;
+}
+
+.reg:before{
+    content:"";
+    display: block;
+    width: 40px;
+    height: 2px;
+    margin-top: 27px;
+    margin-bottom: 32px;
+    background-color: rgb(73, 171, 254);
+}
+
+.signtwo{
+        display: flex;
+        justify-content: space-between;
+}
+
+.signlabel {
+    font-size: 16px;
+    color: rgb(203,210,223);
+    border:none;
+    outline: none;
+    padding: 0;
+}
+
+.signtext{
+    border:none;
+    outline: none;
+}
+.signlabelemail{
+    font-size: 16px;
+    color: rgb(203,210,223);
+}
+
+.signthree{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+.line{
+    content:"";
+    display: block;
+    height: 1px;
+    margin-top: 22px;
+    background-color: rgb(203,210,223);   
+}
+.signpass{
+    font-size: 16px;
+    color: rgb(203,210,223);
+}
+
+.signemail{
+    border:none;
+    outline: none;
+}
+
+.signfour{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.signpw{
+    border:none;
+    outline: none;
+}
+
+.signbtn{
+    border-radius: 30px;
+    background-color: rgb(248,154,53);
+    opacity:0.9;
+    padding: 20px 50px;
+    color:white;
+    font-size: 16px;
+    margin-top: 30px;
+    border:none;
+}  
+#movebox{
+    padding-top: 100px;
+    padding-left: 90px;
+    padding-right: 90px;
+    padding-bottom: 94px;
+    box-sizing:border-box;
+    background-color:white;
+    width: 460px;
+    height: 460px;
+    position: absolute;
+    z-index:5;
+    margin-left:440px; 
+    visibility:visible;
+}
+
+.logone{
+    display: flex;
+    justify-content: space-between;
+}
+
+.log{
+    font-size: 28px;
+    color: gray;
+}
+
+.logform:before{
+    content:"";
+    display: block;
+    width: 40px;
+    height: 2px;
+    margin-top: 27px;
+    margin-bottom: 32px;
+    background-color: rgb(73, 171, 254);
+}
+
+.logtwo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.logmail {
+    font-size: 16px;
+    color: rgb(203,210,223);
+    border:none;
+    outline: none;
+    padding: 0;
+}
+
+.labelemail{
+    font-size: 16px;
+    color: rgb(203,210,223);
+}
+
+.logthree{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 23px;
+}
+.line{
+    content:"";
+    display: block;
+    height: 1px;
+    margin-top: 22px;
+    background-color: rgb(203,210,223);   
+}
+.logpw{
+    border:none;
+    outline: none;
+    padding: 0;
+    font-size: 16px;
+    color: rgb(203,210,223);
+}
+
+.labelpw{
+    font-size: 16px;
+    color: rgb(203,210,223);  
+    }
+
+.logfour{
+    display: flex;
+    justify-content: space-between;
+    }
+
+.forgot{
+    font-size: 16px;
+    color: rgb(203,210,223);
+    margin-top: 30px;
+    background-color: white;
+    border:none;
+    outline: none;
+}
+.logbtn{
+    border-radius: 30px;
+    background-color: rgb(248,154,53);
+    opacity:0.9;
+    padding: 20px 50px;
+    color:white;
+    font-size: 16px;
+    margin-top: 30px;
+    border:none;
+}
+ 
+
+.footer{
+        grid-area: 3/1/4/4;
+        height: 190px; 
+        font-size: 13px;
+}
