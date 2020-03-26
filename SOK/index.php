@@ -10,3 +10,6 @@ $view = new View();
 $model = new Model($config,$view);
 $controller = new Controller ($model);
 $controller->route();
+
+?>
+
