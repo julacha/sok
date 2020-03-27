@@ -44,21 +44,6 @@ class Model{
         $stmt->execute();
        echo "You are wellcome";
       // $this->view->printRegister();
-
-
- 
- /*   $this->conn->prepare("SELECT id FROM users
-        WHERE (name = :name)");
-        $stmt->bindParam(':name',$username);
-        $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $result = $stmt->fetchAll();
-        if(count($result) > 0){
-        return $result [0]['id'];
-        } else{
-        return 0;
-        }  */
-
 }
 
     public function getHash($username){
