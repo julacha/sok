@@ -13,12 +13,10 @@ $controller->route();
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    //var_dump($_POST);
-    $hash = $model->getHash($_POST['username']);
+    $hash = $model->getHash($_POST['pw']);
     if(password_verify($_POST['pw'], $hash)){
         echo "You are good to go! Consider yourself logged in!";
-        $_SESSION['user'] = $_POST['username'];
-        $_SESSION['id'] = $model ->getId($_POST['username']);
+        $_SESSION['email'] = $_POST['email'];
     }else{
         echo "Not so good, eiher user or password is incorrect.";
     }

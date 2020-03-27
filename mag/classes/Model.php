@@ -20,16 +20,15 @@ class Model{
     }
     public function addNewUser(){
         //echo "Adding new user";
-        //if ($this->getHash($_POST['username']) != 0){
-       $stmt = $this->conn->prepare("SELECT name FROM users
+        if ($this->getHash($_POST['pw']) != 0){
+       /*$stmt = $this->conn->prepare("SELECT name FROM users
         WHERE (name = :name)
         ");
         $stmt->bindParam(':name',$_POST ['username']);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $result = $stmt->fetchAll();
-        //var_dump($result);
-        if (count($result) > 0){
+        if (count($result) > 0){*/
        header('Location: /mag/index.html');
         //die("Got this user alredy");
         exit();
@@ -61,7 +60,7 @@ class Model{
         }  */
 
 }
-/* 
+
     public function getHash($username){
         $stmt = $this->conn->prepare("SELECT hash FROM users
         WHERE (name = :name)");
@@ -70,12 +69,10 @@ class Model{
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $result = $stmt->fetchAll();
         if(count($result) > 0){
-          var_dump($results);
-            die("For now"); 
             return $result [0]['hash'];
         } else{
         return 0;
         }
-    }  */
+    } 
 }
 
