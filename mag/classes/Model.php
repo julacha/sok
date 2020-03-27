@@ -19,9 +19,9 @@ class Model{
         $this->view->printRegister();
     }
     public function addNewUser(){
-        echo "Adding new user";
-        //if ($this->getHash($_POST['username']) != 0){
-      /*   $stmt = $this->conn->prepare("SELECT name FROM users
+        //echo "Adding new user";
+         /* if ($this->getHash($_POST['username']) != 0){
+       $stmt = $this->conn->prepare("SELECT name FROM users
         WHERE (name = :name)
         ");
         $stmt->bindParam(':name',$_POST ['username']);
@@ -30,9 +30,9 @@ class Model{
         $result = $stmt->fetchAll();
         //var_dump($result);
         if (count($result) > 0){ */
-        header('Location: /');
+       // header('Location: /');
             //die("Got this user alredy");
-        exit();
+        //exit();
     
   
         $stmt = $this->conn->prepare ("INSERT INTO `users`
@@ -43,12 +43,12 @@ class Model{
         $hash = password_hash($_POST['pw'], PASSWORD_DEFAULT);
         $stmt->bindParam(':hash', $hash);
         $stmt->execute();
-       //echo "You are wellcome";
-       //$this->view->printRegister();
+       echo "You are wellcome";
+       $this->view->printRegister();
 
 
  
-   $this->conn->prepare("SELECT id FROM users
+ /*   $this->conn->prepare("SELECT id FROM users
         WHERE (name = :name)");
         $stmt->bindParam(':name',$username);
         $stmt->execute();
@@ -58,10 +58,10 @@ class Model{
         return $result [0]['id'];
         } else{
         return 0;
-        } 
+        }  */
 
 }
-
+/* 
     public function getHash($username){
         $stmt = $this->conn->prepare("SELECT hash FROM users
         WHERE (name = :name)");
@@ -76,6 +76,6 @@ class Model{
         } else{
         return 0;
         }
-    } 
+    }  */
 }
 
