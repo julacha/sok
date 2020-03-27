@@ -20,7 +20,7 @@ class Model{
     }
     public function addNewUser(){
         //echo "Adding new user";
-         /* if ($this->getHash($_POST['username']) != 0){
+        //if ($this->getHash($_POST['username']) != 0){
        $stmt = $this->conn->prepare("SELECT name FROM users
         WHERE (name = :name)
         ");
@@ -29,11 +29,11 @@ class Model{
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $result = $stmt->fetchAll();
         //var_dump($result);
-        if (count($result) > 0){ */
-       // header('Location: /');
-            //die("Got this user alredy");
-        //exit();
-    
+        if (count($result) > 0){
+       header('Location: /mag/index.html');
+        //die("Got this user alredy");
+        exit();
+        }
   
         $stmt = $this->conn->prepare ("INSERT INTO `users`
         (`id`, `name`, `email`, `hash`) 
@@ -44,7 +44,7 @@ class Model{
         $stmt->bindParam(':hash', $hash);
         $stmt->execute();
        echo "You are wellcome";
-       $this->view->printRegister();
+      // $this->view->printRegister();
 
 
  
