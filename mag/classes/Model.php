@@ -19,7 +19,7 @@ class Model{
         $this->view->printRegister();
     }
     public function addNewUser(){
-        //echo "Adding new user";
+        echo "Adding new user";
         //if ($this->getHash($_POST['username']) != 0){
       /*   $stmt = $this->conn->prepare("SELECT name FROM users
         WHERE (name = :name)
