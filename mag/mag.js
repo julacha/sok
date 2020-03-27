@@ -52,6 +52,8 @@ if(position == 100) {
 clearInterval(id);
 position++;
 point.style.right = position + 'px';
+point.style.top = position + 'px';
+
 
 }
 signBtn.classList.add('color_selected');
