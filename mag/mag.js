@@ -5,28 +5,21 @@ let hide = document.getElementById('movebox');
 signBtn.addEventListener('click', moveLeft);
 signBtn.addEventListener('click', changeColor);
 
-function changeColor(){ 
-    let point = document.getElementsByClassName('pick');   
-    let positiontop = 0;
-    let positionright = 0; 
+function changeColor(){  
+    let pos = 0;
+/*     let positionright = 0;  */
     let id = setInterval(frame, 5);    
-    function frame(){ 
-    if(positiontop == 10){
-        positionright == 20
-    }
-    } 
+    function frame(){
+    let point = document.getElementById('throw');
+    if(pos == 20){ 
     clearInterval(id);
-    positiontop++;
-    positionright++;
-    point.style.top = positiontop + 'px';
-    point.style.right = positionright + 'px';
+} else { 
+    pos++;
+    point.style.right = pos + 'px';
     signBtn.classList.add('color_selected');
-    }
-    
-
-
-
-
+    }   
+}
+}
 
 function moveLeft(){
 let position = 460;    
