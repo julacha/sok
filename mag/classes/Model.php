@@ -2,7 +2,6 @@
 class Model{  
     private $conn = null;
     private $view;
-//connect to database
     public function __construct($config, View $view) {
         $this->view=$view;
         $server = $config['server'];
@@ -11,26 +10,14 @@ class Model{
         $pw = $config['pw'];
         $this->conn = new PDO("mysql:host=$server;dbname=$db;charset=utf8", $user, $pw);
         $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        //echo "<hr>Connected Successfully!<hr>";
-    
     }
 
     public function getRegister(){
         $this->view->printRegister();
     }
     public function addNewUser(){
-        //echo "Adding new user";
         if ($this->getHash($_POST['pw']) != 0){
-       /*$stmt = $this->conn->prepare("SELECT name FROM users
-        WHERE (name = :name)
-        ");
-        $stmt->bindParam(':name',$_POST ['username']);
-        $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $result = $stmt->fetchAll();
-        if (count($result) > 0){*/
        header('Location: /mag/index.html');
-        //die("Got this user alredy");
         exit();
         }
   
@@ -43,7 +30,6 @@ class Model{
         $stmt->bindParam(':hash', $hash);
         $stmt->execute();
        echo "You are wellcome";
-      // $this->view->printRegister();
 }
 
     public function getHash($username){

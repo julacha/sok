@@ -35,10 +35,11 @@ background-repeat: no-repeat;
     height: 420px;
     z-index:1;
     background-color: rgb(15,26,47);
-    opacity:0.9;
     position: absolute;
     color: white ;
+    opacity:0.9;
 }
+
 .acc_one{
     font-size: 28px;
 }
@@ -67,19 +68,25 @@ background-repeat: no-repeat;
     margin-top: 31px;
 }
 
-.color_selected {
-background-color: darkturquoise;
-}
+#signbtn:focus {
+    outline: none !important
+    }
 
+.point{
+    display: flex;
+    justify-content: end;
+}
 #throw{
-    background-color:yellow;
+    background-color: white;
     height: 30px;
     width: 30px;
     border-radius: 50%;
     margin-top: 5%;
     margin-left: 50%;
     position: absolute;
+    visibility: hidden;
 }
+
 .blocktwo{
     padding-top: 110px;
     padding-left: 80px;
@@ -118,7 +125,6 @@ background-color: darkturquoise;
     padding: 18px 45px;
     color:white;
     margin-top: 31px;
-
 }
 
 .colortext{
@@ -143,8 +149,10 @@ background-color: darkturquoise;
         height: 460px;
         visibility: hidden;
         z-index:5;
-        transition: .55s opacity, .55s visibility;
+        transition: opacity 2s;
+        opacity: 0;
 }
+
 .signone{
         display: flex;
         justify-content: space-between;
@@ -229,7 +237,12 @@ background-color: darkturquoise;
     font-size: 16px;
     margin-top: 30px;
     border:none;
-}  
+} 
+
+.signbtn:focus {
+    outline: none !important
+    }
+
 #movebox{
     padding-top: 100px;
     padding-left: 90px;
@@ -243,6 +256,8 @@ background-color: darkturquoise;
     z-index:5;
     margin-left:440px; 
     visibility:visible;
+    transition: opacity 2s, visibility 2s;
+    opacity: 1;
 }
 
 .logone{
@@ -331,8 +346,11 @@ background-color: darkturquoise;
     margin-top: 30px;
     border:none;
 }
- 
 
+.logbtn:focus {
+    outline: none !important
+    }
+ 
 .footer{
         grid-area: 3/1/4/4;
         height: 190px; 
