@@ -1,0 +1,12 @@
+
+/* .area{
+    display: flex;
+} */
+
+.product{
+    width: 150px;
+    height: 150px;
+    border: 1px solid sienna;
+    margin: 10px;
+    display: inline-block;
+}
