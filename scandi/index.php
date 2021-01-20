@@ -5,7 +5,8 @@ require_once "config.php";
 require_once "classes/Model.php";
 require_once "classes/View.php";
 require_once "classes/Controller.php";
-include "index.html";
+include "product_list.php";
+
 
 $view = new View();
 $model = new Model($config,$view);

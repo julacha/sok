@@ -10,8 +10,8 @@
     <header>
         <nav>
         <div class="navig">
-        <div><a href="index.php">Home</a></div>
-        <div><a href="product_add.php">Register</a></div>
+        <div><a href="index.php">Product list</a></div>
+        <div><a href="product_add.php">Product A dd</a></div>
         </div>
         </nav>
         </header>
