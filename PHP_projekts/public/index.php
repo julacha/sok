@@ -5,6 +5,7 @@ error_reporting(E_ALL);
 
 $sid = "000";
 
+$base_url = "";
 session_start();
 $page_name = 'login';
 

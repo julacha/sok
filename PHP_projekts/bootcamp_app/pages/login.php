@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="?page=autheticate" method="post">
+    <form action="?page=authenticate" method="post">
         <label>Lietotajs</label>
         <input type="text" name="username">
         <label>Parole</label>
