@@ -8,7 +8,7 @@ const BASE_URL = "http://localhost/PHP_projekts/public/";
 function get_url($path =""){
     echo BASE_URL . $path; 
 }
-
+//---
 $sid = "000";
 
 $base_url = "";
