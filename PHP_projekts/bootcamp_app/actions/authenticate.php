@@ -12,5 +12,8 @@ if (isset($_REQUEST['sid']) &&
     $_SESSION['password'] = $_REQUEST['password'];
     header("Location: index.php");
 }
+else {
+    header("Location: index.php?page=login");
+}
 
 file_put_contents('error.log', json_encode($_REQUEST));

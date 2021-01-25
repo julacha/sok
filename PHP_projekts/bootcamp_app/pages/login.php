@@ -1,3 +1,4 @@
+<?php include "../bootcamp_app/components/navigation.php"; ?>
 <html>
 <head>
     <link rel="stylesheet" href="style.css">

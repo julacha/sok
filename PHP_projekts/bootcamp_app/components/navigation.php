@@ -1,6 +1,6 @@
 <nav>
-<a href="">todolist</a>
-<a href="login.php">autorizācija</a>
-<a href="contacts.php">kontakti</a>
-<a href="logout.php">logout</a>
+    <a href="<?php get_url() ?>">Todolist</a>
+    <a href="<?php get_url("?page=contacts") ?>">Kontakti</a>
+    <a href="<?php get_url() ?>">Login</a>
+    <a href="<?php get_url("?page=logout") ?>">Logout</a>
 </nav>
