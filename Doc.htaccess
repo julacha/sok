@@ -1,0 +1,4 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_URI} !^/PHP_projekts_axample/public/
+RewriteRule (.*) /PHP_projekts_axample/public/$1 [L]
